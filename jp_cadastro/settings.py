@@ -87,10 +87,12 @@ WSGI_APPLICATION = 'jp_cadastro.wsgi.application'
 DB_URL = config('DB_URL', default=os.environ.get('DB_URL', None))
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=DB_URL
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
 
 # DATABASES = {
 #     'default': {
