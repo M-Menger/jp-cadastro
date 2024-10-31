@@ -10,10 +10,6 @@ COPY . .
 
 ENV DJANGO_SETTINGS_MODULE=jp_cadastro.settings
 
-RUN python manage.py collectstatic --noinput
-
-RUN python manage.py migrate --noinput
-
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "jp_cadastro.wsgi:application"]
+CMD ["sh", "-c", "python manage.py collectstatic --noinput && python manage.py migrate --noinput && gunicorn --bind 0.0.0.0:8000 jp_cadastro.wsgi:application"]
