@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'jp_cadastro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-#usando URI
+#Usando URI
 DB_URL = config('DB_URL', default=os.environ.get('DB_URL', None))
 
 #Usando JDBC
