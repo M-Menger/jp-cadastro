@@ -32,7 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
-    'https://membrosfrontdeploy.onrender.com',
+    'https://membrosfrontdeploy.onrender.com/membros',
 ]
 
 # Application definition
