@@ -86,25 +86,21 @@ WSGI_APPLICATION = 'jp_cadastro.wsgi.application'
 
 DB_URL = config('DB_URL', default=os.environ.get('DB_URL', None))
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'Membros',      
-#         'USER': 'postgres',         # Usuário do banco de dados
-#         'PASSWORD': 'postgres',       # Senha do banco de dados
-#         'HOST': 'localhost',           # Geralmente 'localhost' ou endereço do servidor
-#         'PORT': '5432',                # Porta padrão do PostgreSQL é 5432
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': dj_database_url.config(
+            default=DB_URL
+        )
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
